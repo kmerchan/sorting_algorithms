@@ -1,6 +1,10 @@
 #ifndef SORT_H
 #define SORT_H
 
+/* INCLUDED LIBRARIES */
+#include <stdio.h>
+#include <stdlib.h>
+
 /* STRUCTS AND DEFINITIONS */
 /**
  * struct listint_s - Doubly linked list node
@@ -22,5 +26,20 @@ void print_array(const int *array, size_t size);
 
 /* function to print list of integers */
 void print_list(const listint_t *list);
+
+/* function to sort array of integers with bubble sort */
+void bubble_sort(int *array, size_t size);
+
+/* function to sort doubly linked list of integers with insertion sort */
+void insertion_sort_list(listint_t **list);
+
+/* function to sort array of integers with selection sort */
+void selection_sort(int *array, size_t size);
+
+/* function to sort array of integers with quick sort */
+void quick_sort(int *array, size_t size);
+
+/* function to sort array of integers with radix sort */
+void radix_sort(int *array, size_t size);
 
 #endif
