@@ -38,8 +38,20 @@ void selection_sort(int *array, size_t size);
 
 /* function to sort array of integers with quick sort */
 void quick_sort(int *array, size_t size);
+void quick_sort_recursion(int *array, size_t size, size_t start, size_t end);
+
+/* function to sort array of integers with shell sort */
+void shell_sort(int *array, size_t size);
+
+/* function to sort doubly linked list of integers with cocktail sort */
+void cocktail_sort(listint_t **list);
+
+/* function to sort array of integers with counting sort */
+void counting_sort(int *array, size_t size);
 
 /* function to sort array of integers with radix sort */
 void radix_sort(int *array, size_t size);
+int digit_counting(int *array, size_t size);
+int divider_set(int current_digit);
 
 #endif
