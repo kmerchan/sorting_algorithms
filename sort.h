@@ -44,7 +44,7 @@ void quick_sort_recursion(int *array, size_t size, size_t start, size_t end);
 void shell_sort(int *array, size_t size);
 
 /* function to sort doubly linked list of integers with cocktail sort */
-void cocktail_sort(listint_t **list);
+void cocktail_sort_list(listint_t **list);
 
 /* function to sort array of integers with counting sort */
 void counting_sort(int *array, size_t size);
