@@ -38,7 +38,7 @@ void selection_sort(int *array, size_t size);
 
 /* function to sort array of integers with quick sort */
 void quick_sort(int *array, size_t size);
-void quick_sort_recursion(int *array, size_t size, size_t start, size_t end);
+void quick_sorting(int *array, size_t size, int *full_array, size_t full_size);
 
 /* function to sort array of integers with shell sort */
 void shell_sort(int *array, size_t size);
