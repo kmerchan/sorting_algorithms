@@ -1,60 +1,56 @@
 #include "sort.h"
 
 /**
- * quick_sort - sorts an array of integers using quick sort
- * array is sorted in ascending order
- * Lomuto partition scheme is used
- * @array: given array to sort
+ * quick_sort - sorts an array of integers in ascending order using quick sort
+ * implements the Lomuto partition scheme to choose pivot
+ * @array: array of integers to sort
  * @size: size of array to sort
- *
  */
 
 void quick_sort(int *array, size_t size)
 {
-/* quick sort: */
-/* sorts smaller and smaller pieces into lower on left, higher on right */
-
-	quick_sort_recursion(array, size, 0, size - 1);
+	quick_sorting(array, size, array, size);
 }
 
 /**
- * quick_sort_recursion - recursively sorts using quick sort
- * @array: array to sort
- * @size: size of array
- * @start: start of partition to sort
- * @end: end of partition to sort
- *
+ * quick_sorting - sorts array with quick sort, prints after every switch
+ * @array: array or subarray to sort
+ * @size: size of array to sort
+ * @full_array: full array for printing
+ * @full_size: size of full array for printing
  */
 
-void quick_sort_recursion(int *array, size_t size, size_t start, size_t end)
+void quick_sorting(int *array, size_t size, int *full_array, size_t full_size)
 {
-	unsigned int i = 0, pivot_index = 0, placement = 0;
-	int holder;
+	size_t index = 0, pivot = size - 1, placeholder = 0;
+	int temp = 0;
 
-	pivot_index = end;
-	placement = start;
-	for (i = start; i < pivot_index; i++)
+	if (size < 2 || array == NULL)
+		return;
+	for (index = 0; index < pivot; index++)
 	{
-		if (array[i] < array[pivot_index] && i != placement)
+		if (array[index] < array[pivot] && index == placeholder)
+			placeholder++;
+		else if (array[index] < array[pivot] && index != placeholder)
 		{
-			holder = array[i];
-			array[i] = array[placement];
-			array[placement] = holder;
-			placement++;
-			print_array(array, size);
+			temp = array[index];
+			array[index] = array[placeholder];
+			array[placeholder] = temp;
+			placeholder++;
+			print_array(full_array, full_size);
 		}
-		else if (array[i] < array[pivot_index])
-			placement++;
 	}
-	if (placement != pivot_index)
+	if (pivot != placeholder)
 	{
-		holder = array[placement];
-		array[placement] = array[pivot_index];
-		array[pivot_index] = holder;
-		print_array(array, size);
+		temp = array[pivot];
+		array[pivot] = array[placeholder];
+		array[placeholder] = temp;
+		print_array(full_array, full_size);
 	}
-	if (placement != start)
-		quick_sort_recursion(array, size, 0, placement - 1);
-	if (placement != end)
-		quick_sort_recursion(array, size, placement + 1, size - 1);
+
+	/* left side */
+	quick_sorting(array, placeholder, full_array, full_size);
+	/* right side */
+	placeholder += 1;
+	quick_sorting(&array[placeholder], size - placeholder, full_array, full_size);
 }
