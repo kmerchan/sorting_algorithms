@@ -40,7 +40,7 @@ void quick_sorting(int *array, size_t size, int *full_array, size_t full_size)
 			print_array(full_array, full_size);
 		}
 	}
-	if (pivot != placeholder)
+	if (array[pivot] != array[placeholder])
 	{
 		temp = array[pivot];
 		array[pivot] = array[placeholder];
